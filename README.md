@@ -18,7 +18,7 @@ Here is an example of Attrle:
     <!-- attrle="carosel" initializes attrle and dynamically loads the carosel module's logic & styles -->
     <!-- attrle="attrleDemo" sets the a name for this component -->
 
-    <div class="caroselSlide" attrleDemo> 
+    <div attrleDemo> 
     <!-- you include the component name as an attribute to have attrle keep track of this element-->
         <p attrleDemo="prev">Previous</p> 
         <p attrleDemo="next">Next</p>
@@ -27,7 +27,7 @@ Here is an example of Attrle:
         <p> this is slide one </p>
     </div>
     
-    <div class="caroselSlide" attrleDemo> 
+    <div attrleDemo> 
         <p attrleDemo="prev">Previous</p> 
         <p attrleDemo="next">Next</p>
 
@@ -36,6 +36,8 @@ Here is an example of Attrle:
 
 </div>
 ```
+Attrle's default carosel module dynamically adds classes to hide(by default) and show carosel slides,
+the end user of Attrle can configure which class is used in the carosel module.
 
 Attrle has a decoupled controls archetecture, allowing for maximum flexibility with interactions:
 
