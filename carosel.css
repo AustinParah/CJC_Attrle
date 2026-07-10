@@ -1,0 +1,8 @@
+
+.caroselSlide{
+  display: none;
+}
+
+.shown{
+  display: block;
+}
