@@ -15,12 +15,11 @@ class initAttrelle {
     // if you wish to add custom modules also add them here.
     this.moduleList.set("modal", async (element, domain, componentName) => { const module = await import("./modal.js"); return new module.default(element, domain, componentName); });
     this.moduleList.set("carosel", async (element, domain, componentName) => { const module = await import("./carosel.js"); return new module.default(element, domain, componentName); });
+    this.moduleList.set("dropdown", async (element, domain, componentName) => { const module = await import("./dropdown.js"); return new module.default(element, domain, componentName); });
 
     // init sequence
     this.components = document.querySelectorAll('[attrelle]');
 
-    // goals: global-prefix detection
-    // detect valid module names
     for(let [moduleType, moduleInitFunction] of this.moduleList){
       for(let component of this.components){
         let domain = component;
@@ -34,10 +33,12 @@ class initAttrelle {
             namespace = attribute;
         }
 
-        if(!isCorrectModuleType && !namespace)
-          continue;
+        //console.log(`is correct module type-${moduleType} ${isCorrectModuleType} -- has namespace ${namespace}`);
 
-        console.log(domain);
+        if(!isCorrectModuleType){
+          continue;
+        }
+
 
         if(namespace.includes("global-")){
           if(document.querySelectorAll(`[attrelle=${namespace}]`).length > 1){
@@ -45,11 +46,7 @@ class initAttrelle {
             break;
           }
           domain = document;
-          console.log(`set domain as document ${namespace}`)
-
-          continue;
         }
-        console.log(` --- ${namespace}`)
         this.componentsClasslist.push(moduleInitFunction(component, domain, namespace));
         
       }

@@ -33,7 +33,7 @@ export default class modal{
   }
 
   constructor(element, domain, componentName){
-    console.log(`Attrelle: modal module bound: ${componentName}`);
+    console.log(`Attrelle: Modal Module Loaded: bound to ${componentName}`);
 
     // save attrelle="modal componentName" element
     this.modal = element;

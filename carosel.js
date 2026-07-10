@@ -24,7 +24,7 @@ export default class carosel{
   incrementor = 0;
 
   constructor(element, domain, componentName){
-    console.log(`Attrelle: Carosel Module Loaded: ${componentName}`);
+    console.log(`Attrelle: Carosel Module Loaded: bound to ${componentName}`);
     document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="./carosel.css">');
 
     this.caroselContainer = element;
