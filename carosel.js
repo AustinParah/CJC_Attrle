@@ -1,7 +1,7 @@
 
-// Carosel module for attrle
+// Carosel module for attrelle
 //
-// Usage: Bind "attrle='carosel <caroselName>'" to carosel container / any element
+// Usage: Bind "attrelle='carosel <caroselName>'" to carosel container 
 //        Bind "<caroselName>" to carosel slide itself
 //        Bind "<caroselName>='(next/prev)'" to next or previous buttons
 //
@@ -23,13 +23,13 @@ export default class carosel{
   caroselSlides = [];
   incrementor = 0;
 
-  constructor(element, componentName){
-    console.log(`Attrle: Carosel Module Loaded: ${componentName}`);
+  constructor(element, domain, componentName){
+    console.log(`Attrelle: Carosel Module Loaded: ${componentName}`);
     document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="./carosel.css">');
 
     this.caroselContainer = element;
 
-    let moduleSurfaces = document.querySelectorAll(`[${componentName}]`);
+    let moduleSurfaces = domain.querySelectorAll(`[${componentName}]`);
     for(let surface of moduleSurfaces){
       if(surface.getAttribute(componentName) == ""){
         surface.classList.add(this.caroselSlideClass);

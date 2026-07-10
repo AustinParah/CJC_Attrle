@@ -1,7 +1,7 @@
 
-// IMPORTANT NOTE: Attrle's default modal module is designed to use <dilog> tags only
+// IMPORTANT NOTE: Attrelle's default modal module is designed to use <dilog> tags only
 //
-// Usage: bind "attrle='modal <componentName>'" to the modal element
+// Usage: bind "attrelle='modal <componentName>'" to the modal element
 //        bind "<componentName>='(open/close/toggle)'" to assign controls
 // 
 // Keywords: 
@@ -32,14 +32,14 @@ export default class modal{
       }
   }
 
-  constructor(element, componentName){
-    console.log(`Attrle: modal module bound: ${componentName}`);
+  constructor(element, domain, componentName){
+    console.log(`Attrelle: modal module bound: ${componentName}`);
 
-    // save attrle="modal componentName" element
+    // save attrelle="modal componentName" element
     this.modal = element;
 
     // now that we've bound to a specific html component, we need to find then link all our stuff
-    let componentSurfaces = document.querySelectorAll(`[${componentName}]`);
+    let componentSurfaces = domain.querySelectorAll(`[${componentName}]`);
 
     for(let surface of componentSurfaces){
       surface.addEventListener("click", () => this.opperations(surface, componentName));
